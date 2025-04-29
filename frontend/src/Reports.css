@@ -1,0 +1,622 @@
+.reports-page {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding-bottom: 2rem;
+}
+
+.reports-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.reports-header {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.reports-title {
+  font-size: 2.5rem;
+  color: #1e293b;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.reports-title:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 2px;
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+}
+
+.report-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.report-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.report-card h2 {
+  color: #1e293b;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 1rem;
+}
+
+.report-icon {
+  margin-right: 0.75rem;
+  color: #3b82f6;
+  font-size: 1.1rem;
+}
+
+/* Monthly Income vs. Expense Trend Chart */
+.monthly-trends {
+  grid-column: 1 / 3;
+}
+
+.chart-container {
+  position: relative;
+  height: 300px;
+  margin-bottom: 1rem;
+}
+
+.chart-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 1rem;
+  text-align: right;
+  font-size: 0.75rem;
+  color: #64748b;
+  width: 80px;
+}
+
+.line-chart {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  border-bottom: 1px solid #e2e8f0;
+  border-left: 1px solid #e2e8f0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.chart-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.chart-bars {
+  display: flex;
+  width: 100%;
+  height: 250px;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.income-bar, .expense-bar {
+  width: 30px;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.5s ease;
+}
+
+.income-bar {
+  background-color: #10b981;
+}
+
+.expense-bar {
+  background-color: #3b82f6;
+}
+
+.expense-bar.over-budget {
+  background-color: #ef4444;
+}
+
+.chart-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.income-color {
+  background-color: #10b981;
+}
+
+.expense-color {
+  background-color: #3b82f6;
+}
+
+/* Spending Breakdown by Category */
+.bar-chart {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.category-bar-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.category-label {
+  width: 120px;
+  font-size: 0.875rem;
+  color: #1e293b;
+}
+
+.category-bar-wrapper {
+  flex: 1;
+  height: 24px;
+  background-color: #f1f5f9;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-bar {
+  height: 100%;
+  background-color: #3b82f6;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.category-amount {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Budget Progress Bars */
+.budget-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.budget-progress-item {
+  margin-bottom: 1.25rem;
+}
+
+.budget-item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.budget-category {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.budget-values {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.budget-progress-bar {
+  height: 10px;
+  background-color: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.budget-progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.budget-progress-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.budget-status {
+  font-weight: 600;
+}
+
+.budget-remaining {
+  color: #64748b;
+}
+
+/* Daily Spending Heatmap */
+.heatmap-container {
+  padding: 1rem 0;
+}
+
+.day-labels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 0.5rem;
+}
+
+.day-label {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 4px;
+  height: 200px;
+}
+
+.heatmap-cell {
+  position: relative;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.05);
+}
+
+.day-number {
+  font-size: 0.75rem;
+  color: #fff;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.heatmap-legend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.heatmap-scale {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.scale-label {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.scale-gradient {
+  width: 150px;
+  height: 8px;
+  background: linear-gradient(to right, #f1f5f9, #1e293b);
+  border-radius: 4px;
+}
+
+.scale-note {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Biggest Transactions */
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.big-transaction-item {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.big-transaction-item:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
+}
+
+.transaction-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.transaction-description {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.transaction-amount {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.amount-positive {
+  color: #10b981;
+}
+
+.amount-negative {
+  color: #ef4444;
+}
+
+.transaction-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.transaction-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.transaction-tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: #e2e8f0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* Income Trend Chart */
+.income-chart {
+  height: 300px;
+  width: 100%;
+}
+
+.income-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.income-line {
+  fill: none;
+  stroke: #3b82f6;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.income-point {
+  fill: #3b82f6;
+  stroke: white;
+  stroke-width: 2;
+}
+
+.income-label {
+  font-size: 10px;
+  fill: #64748b;
+  font-weight: 500;
+}
+
+.income-value {
+  font-size: 10px;
+  fill: #1e293b;
+  font-weight: 600;
+}
+
+.no-data-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  color: #64748b;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgba(241, 245, 249, 0.7);
+  border-radius: 8px;
+  border: 1px dashed #cbd5e1;
+  margin: 1rem 0;
+}
+
+/* Loading and Error States */
+.loading-state, .error-state {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #64748b;
+}
+
+.error-icon {
+  font-size: 3rem;
+  color: #ef4444;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .reports-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .monthly-trends {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .reports-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .reports-title {
+    font-size: 2rem;
+  }
+  
+  .reports-title:after {
+    width: 80px;
+  }
+  
+  .report-card {
+    padding: 1rem;
+  }
+  
+  .income-chart {
+    height: 250px;
+  }
+  
+  .category-label {
+    width: 80px;
+  }
+}
+
+/* Line Chart Styles */
+.trend-svg {
+  width: 100%;
+  height: 250px;
+  margin-top: 20px;
+  overflow: visible;
+}
+
+.income-line {
+  stroke-dasharray: none;
+  filter: drop-shadow(0 1px 2px rgba(16, 185, 129, 0.3));
+}
+
+.expense-line {
+  stroke-dasharray: none;
+  filter: drop-shadow(0 1px 2px rgba(59, 130, 246, 0.3));
+}
+
+.income-point {
+  cursor: pointer;
+  transition: r 0.2s ease, fill 0.2s ease;
+  filter: drop-shadow(0 1px 2px rgba(16, 185, 129, 0.5));
+}
+
+.expense-point {
+  cursor: pointer;
+  transition: r 0.2s ease, fill 0.2s ease;
+  filter: drop-shadow(0 1px 2px rgba(59, 130, 246, 0.5));
+}
+
+.income-point:hover, .expense-point:hover {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Update legend colors to match line chart */
+.legend-item .income-color {
+  background-color: #10b981;
+}
+
+.legend-item .expense-color {
+  background-color: #3b82f6;
+}
+
+/* Recharts tooltip customization */
+.recharts-custom-tooltip {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.tooltip-label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #475569;
+  font-size: 15px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 5px;
+}
+
+/* Additional chart-specific styles */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #e2e8f0;
+}
+
+.recharts-legend-item-text {
+  color: #475569 !important;
+  font-size: 14px;
+}
+
+.recharts-default-tooltip {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  background-color: white !important;
+  border: none !important;
+} 
