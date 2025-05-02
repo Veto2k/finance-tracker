@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken")
 require("dotenv").config()
 const verifyToken = require("../middleware/auth");
 
+
 const router = express.Router()
 const client = new OAuth2Client(process.env.GOOGLE_AUTH);
 
@@ -24,20 +25,28 @@ router.post('/register', async (req, res) => {
     try {
       const { name, email, password } = req.body;
       const type = "password"
-      console.log(req.body)
+
   
       // Validation: Ensure fields exist
       if (!email || !password) {
-        return res.status(400).json({ error: 'Email and password are required' });
+        return res.status(400).json({ message: 'Email and password are required' });
       }
 
       const existingUser = await User.findOne({ email: email });
       if (existingUser) {
         return res.status(400).json({ message: 'User already exists' });
       }
+
+      console.log(req.body)
+
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+
+
   
-      const newUser = new User({ name, type,email, password });
+      const newUser = new User({ name, type,email, password: hashedPassword });
       await newUser.save();
+
       res.status(201).json({ message: 'User registered successfully', user: newUser });
     } catch (error) {
       res.status(500).json({ error: error.message });

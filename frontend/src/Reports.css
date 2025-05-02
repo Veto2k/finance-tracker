@@ -475,7 +475,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: auto;
   height: 200px;
   color: #64748b;
   font-size: 15px;

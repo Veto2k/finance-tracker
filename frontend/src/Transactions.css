@@ -47,6 +47,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
+.search-filter-bar .form-group {
+  margin-bottom: 0;
+}
+
 /* Form Group Styles */
 .form-group {
   display: flex;

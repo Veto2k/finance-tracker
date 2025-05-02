@@ -503,6 +503,7 @@ const Dashboard = () => {
     </div>
 
     <div className="bar-graph-container">
+      <div className="bar-graph-header-flex">
       <h2>Monthly Expenses by Category</h2>
       <div className="date-picker-container">
         <DatePicker
@@ -512,6 +513,7 @@ const Dashboard = () => {
           showMonthYearPicker
           className="month-picker"
         />
+      </div>
       </div>
       <div className="bar-chart">
         <ResponsiveContainer width="100%" height={400}>

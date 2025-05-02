@@ -1,4 +1,16 @@
 {
+  "name": "finance-tracker",
+  "version": "1.0.0",
+  "description": "Finance tracking application",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "cd frontend && npm install && npm run build",
+    "install-all": "npm install && cd frontend && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/index.js",
+    "client": "cd frontend && npm start"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
@@ -6,5 +18,9 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "multer": "^1.4.5-lts.2",
     "victory": "^37.3.6"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.3"
   }
 }

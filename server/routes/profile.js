@@ -44,7 +44,7 @@ router.put("/change-password", verifyToken, async (req, res) => {
         // For Google users, skip current password validation
         if (user.type === 'google' ) {
             // First time setting password for Google user
-            const salt = await bcrypt.genSalt(process.env.SALT);
+            const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(newPassword, salt);
             
             await User.findByIdAndUpdate(id, {password: hashedPassword});
@@ -58,7 +58,7 @@ router.put("/change-password", verifyToken, async (req, res) => {
                 return res.status(401).json({ message: "Invalid current password" });
             }
 
-            const salt = await bcrypt.genSalt(process.env.SALT);
+            const salt = await bcrypt.genSalt(10);
             newPassword = await bcrypt.hash(newPassword, salt);
             
             await User.findByIdAndUpdate(id, {password: newPassword});
